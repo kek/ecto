@@ -484,7 +484,7 @@ defmodule Ecto.Adapters.SQL do
       pool_time: queue_time, result: result, query: query} = entry
     repo.__log__(%Ecto.LogEntry{query_time: query_time, decode_time: decode_time,
                                 queue_time: queue_time, result: log_result(result),
-                                params: params, query: String.Chars.to_string(query)})
+                                params: params, query: inspect(query)})
   end
 
   defp log_result({:ok, _query, res}), do: {:ok, res}
